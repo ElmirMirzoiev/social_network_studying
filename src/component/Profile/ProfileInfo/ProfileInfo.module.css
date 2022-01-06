@@ -1,0 +1,15 @@
+.profile {
+    text-decoration: none;
+}
+
+.profile img {
+    border: solid black;
+    border-radius: 10px;
+    width: 280px;
+    margin: 10px;
+
+}
+
+.descriptionBlock {
+    padding: 20px;
+}

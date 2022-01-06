@@ -1,0 +1,39 @@
+.nav {
+    grid-area: n;
+    background: #FFFFFF;
+    border: solid 2px #6495ED;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.link_item {
+    background-color: #6495ED;
+    padding: 5px;
+    margin: 15px;
+    display: block;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    line-height: 35px;
+    transition: 0.4s;
+}
+
+
+.link_item:hover {
+    background-color: grey;
+}
+
+.active_link {
+    background-color: grey;
+    padding: 5px;
+    margin: 15px;
+    display: block;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    line-height: 35px;
+    transition: 0.4s;
+}
+

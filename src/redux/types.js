@@ -1,0 +1,8 @@
+export const ADD_MESSAGE = 'ADD-MESSAGE';
+export const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
+export const ADD_POST = 'ADD-POST';
+export const UPDATE_POST_TEXT  = 'UPDATE-POST-TEXT';
+export const SET_USERS_DATA = 'SET-USERS';
+export const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
+export const FOLLOW_USER = 'FOLLOW-USER'
+export const UNFOLLOW_USER = 'UNFOLLOW-USER'
