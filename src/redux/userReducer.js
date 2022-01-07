@@ -9,7 +9,6 @@ let initialState = {
     isLoading: false
 };
 
-
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
 
@@ -23,7 +22,6 @@ const usersReducer = (state = initialState, action) => {
                     return users;
                 })
             }
-
         case UNFOLLOW_USER:
             return {
                 ...state,
@@ -34,7 +32,6 @@ const usersReducer = (state = initialState, action) => {
                     return users;
                 })
             }
-
         case SET_USERS_DATA:
             return {
                 ...state,
@@ -57,10 +54,10 @@ const usersReducer = (state = initialState, action) => {
 
 }
 
-export const followAC = (id) => ({type: FOLLOW_USER, id})
-export const unfollowAC = (id) => ({type: UNFOLLOW_USER, id})
-export const setUsersDataAC = (users, totalCount) => ({type: SET_USERS_DATA, users, totalCount})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const toggleIsLoadingAC = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
+export const follow = (id) => ({type: FOLLOW_USER, id})
+export const unfollow = (id) => ({type: UNFOLLOW_USER, id})
+export const setUsersData = (users, totalCount) => ({type: SET_USERS_DATA, users, totalCount})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
 
 export default usersReducer;

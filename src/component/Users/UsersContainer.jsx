@@ -1,8 +1,8 @@
 import {connect} from "react-redux";
 import {
-    followAC, setCurrentPageAC,
-    setUsersDataAC, toggleIsLoadingAC,
-    unfollowAC
+    follow, setCurrentPage,
+    setUsersData, toggleIsLoading,
+    unfollow
 } from "../../redux/userReducer";
 import Users from "./Users";
 
@@ -16,24 +16,13 @@ import Users from "./Users";
             isLoading: state.usersPage.isLoading
         }
     }
-    const mapDispatchToProps = (dispatch) => {
-        return {
-            followUser: (id) => {
-                dispatch(followAC(id))
-            },
-            unfollowUser: (id) => {
-                dispatch(unfollowAC(id))
-            },
-            setUsersData: (users, totalCount) => {
-                dispatch(setUsersDataAC(users, totalCount))
-            },
-            setCurrentPage: (pageNumber)  => {
-                dispatch(setCurrentPageAC(pageNumber))
-            },
-            toggleIsLoading: (isLoading) => {
-                dispatch(toggleIsLoadingAC(isLoading))
-            }
-        }
+
+    const mapDispatchToProps =  {
+        follow,
+        unfollow,
+        setUsersData,
+        setCurrentPage,
+        toggleIsLoading,
     }
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);

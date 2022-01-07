@@ -29,10 +29,10 @@ function Users(props) {
         <span>{'UniqueUrlName'}</span>
         {u.followed
             ? <button className={s.btn} onClick={() => {
-                props.unfollowUser(u.id)
+                props.unfollow(u.id)
             }}> Unfollow </button>
             : <button className={s.btn} onClick={() => {
-                props.followUser(u.id)
+                props.follow(u.id)
             }}> Follow </button>}
     </div>)
     const pagination = () => {
