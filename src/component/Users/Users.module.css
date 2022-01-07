@@ -24,10 +24,6 @@
     transition: .5s;
 }
 
-/*.pagesList span {*/
-/*    width: 10px;*/
-/*}*/
-
 .pagesList:hover {
     background-color: grey;
 }
@@ -51,8 +47,9 @@
     justify-content: flex-start;
 }
 
-.item {
-    /*padding: 5px;*/
+.userItem {
+    display: flex;
+    flex-direction: column;
 }
 
 .btn {
@@ -60,7 +57,7 @@
     color: #FFFFFF;
     border-radius: 7px;
     border: 1px solid black;
-    /*margin: 5px;*/
+    margin-top: 5px;
     text-decoration: none;
     transition: 0.4s;
     width: 80px;

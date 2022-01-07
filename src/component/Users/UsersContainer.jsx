@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {
     followAC, setCurrentPageAC,
-    setUsersDataAC,
+    setUsersDataAC, toggleIsLoadingAC,
     unfollowAC
 } from "../../redux/userReducer";
 import Users from "./Users";
@@ -12,7 +12,8 @@ import Users from "./Users";
             pageSize: state.usersPage.pageSize,
             totalCount: state.usersPage.totalCount,
             currentPage: state.usersPage.currentPage,
-            photos: state.usersPage.photos
+            photos: state.usersPage.photos,
+            isLoading: state.usersPage.isLoading
         }
     }
     const mapDispatchToProps = (dispatch) => {
@@ -28,6 +29,9 @@ import Users from "./Users";
             },
             setCurrentPage: (pageNumber)  => {
                 dispatch(setCurrentPageAC(pageNumber))
+            },
+            toggleIsLoading: (isLoading) => {
+                dispatch(toggleIsLoadingAC(isLoading))
             }
         }
     }

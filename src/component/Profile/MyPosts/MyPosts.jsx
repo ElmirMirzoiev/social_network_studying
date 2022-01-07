@@ -7,7 +7,8 @@ function MyPosts(props) {
 
     let state = props.profilePage;
     //
-    let postElement = state.postData.map(p => <Post img={p.img}
+    let postElement = state.postData.map(p => <Post key={p.id}
+                                                    img={p.img}
                                                     message={p.message}
                                                     likesCount={p.likesCount}/>)
     let addPost = () => {

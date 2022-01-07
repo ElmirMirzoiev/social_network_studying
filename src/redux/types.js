@@ -6,3 +6,4 @@ export const SET_USERS_DATA = 'SET-USERS';
 export const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
 export const FOLLOW_USER = 'FOLLOW-USER'
 export const UNFOLLOW_USER = 'UNFOLLOW-USER'
+export const TOGGLE_IS_LOADING = 'TOGGLE-IS-LOADING'

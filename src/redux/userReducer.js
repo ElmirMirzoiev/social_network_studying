@@ -1,11 +1,12 @@
-import {FOLLOW_USER, SET_CURRENT_PAGE, SET_USERS_DATA, UNFOLLOW_USER} from "./types";
+import {FOLLOW_USER, SET_CURRENT_PAGE, SET_USERS_DATA, TOGGLE_IS_LOADING, UNFOLLOW_USER} from "./types";
 
 let initialState = {
     users: [],
     pageSize: 20,
     error: null,
     totalCount: null,
-    currentPage: 1
+    currentPage: 1,
+    isLoading: false
 };
 
 
@@ -45,6 +46,11 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                currentPage: action.currentPage
             }
+        case TOGGLE_IS_LOADING:
+            return {
+                ...state,
+                isLoading: action.isLoading
+            }
         default:
             return state;
     }
@@ -55,5 +61,6 @@ export const followAC = (id) => ({type: FOLLOW_USER, id})
 export const unfollowAC = (id) => ({type: UNFOLLOW_USER, id})
 export const setUsersDataAC = (users, totalCount) => ({type: SET_USERS_DATA, users, totalCount})
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const toggleIsLoadingAC = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
 
 export default usersReducer;
