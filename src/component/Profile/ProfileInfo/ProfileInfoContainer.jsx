@@ -14,7 +14,7 @@ const ProfileInfoContainer = () => {
         ProfileAPI.getProfileData(`2`).then(profile => {
             dispatch(setUserProfile(profile))
         })
-    }, [])
+    }, [dispatch])
 
     if (!profileData) {
         return <Preloader/>
