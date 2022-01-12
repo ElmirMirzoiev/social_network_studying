@@ -9,7 +9,7 @@ function Navbar() {
     return (
         <nav className={s.nav}>
             <div>
-                <NavLink to='/profile/' className={setActive}> Profile </NavLink>
+                <NavLink to='/profile/2' className={setActive}> Profile </NavLink>
             </div>
             <div>
                 <NavLink to='/messages/' className={setActive}> Messages </NavLink>
