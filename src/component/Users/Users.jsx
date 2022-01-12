@@ -3,11 +3,14 @@ import s from './Users.module.css';
 import userImg from '../../assets/images/user.png';
 import {Pagination} from "@mui/material";
 import {follow, setCurrentPage, unfollow} from "../../store/userReducer";
+import {NavLink} from "react-router-dom";
 
 function Users(props) {
 
 const userElement = props.usersPage.users.map(u => <li key={u.id} className={s.userItem}>
-    <img alt='UserPhoto' src={u.photos.small !== null ? u.photos.small : userImg} className={s.img}/>
+   <NavLink to={'/profile/' + u.id}>
+       <img alt='UserPhoto' src={u.photos.small !== null ? u.photos.small : userImg} className={s.img}/>
+   </NavLink>
     <span>{u.name}</span>
     <span>{'UniqueUrlName'}</span>
     {u.followed

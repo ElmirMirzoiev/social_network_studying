@@ -14,7 +14,7 @@ function App() {
         <Navbar/>
         <div className='app-content'>
             <Routes>
-                <Route path='/profile' element={<Profile />}/>
+                <Route path='/profile/:id' element={<Profile />}/>
                 <Route path='/messages' element={<MessagesContainer />}/>
                 <Route path='/music' element={<Music/>}/>
                 <Route path='/settings' element={<Settings/>}/>
