@@ -3,8 +3,10 @@ import {
     follow, setCurrentPage,
     setUsersData, toggleIsLoading,
     unfollow
-} from "../../redux/userReducer";
+} from "../../store/userReducer";
 import Users from "./Users";
+
+
 
     const mapStateToProps = (state) => {
         return {

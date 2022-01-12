@@ -1,7 +1,8 @@
-import {ADD_POST, UPDATE_POST_TEXT} from "./types";
+import {ADD_POST, SET_USER_PROFILE, UPDATE_POST_TEXT} from "./types";
 import userImg from '../assets/images/user.png'
 
 let initialState = {
+    userProfile: null,
     newPostText: '',
     postData: [
         {
@@ -29,31 +30,28 @@ const profileReducer = (state = initialState, action) => {
             }
         case ADD_POST:
             let newPost = {
-                id: 6,
+                id: 3,
                 img: <img src={userImg} alt='ava'/>,
                 message: state.newPostText,
                 likesCount: 0
             };
             return {
                 ...state,
-                newPostText: '',
                 postData: [...state.postData, newPost],
+                newPostText: '',
+            }
+        case SET_USER_PROFILE:
+            return {
+                ...state,
+                userProfile: action.profile
             }
         default:
             return state;
     }
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-};
-export const updatePostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_POST_TEXT,
-        newText: text
-    }
-};
+export const addPost = () => ({type: ADD_POST});
+export const updatePostText = (text) => ({type: UPDATE_POST_TEXT, newText: text});
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export default profileReducer;

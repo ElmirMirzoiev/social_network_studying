@@ -1,13 +1,19 @@
-.profile {
+.container {
+    display: flex;
+    flex-direction: row;
     text-decoration: none;
 }
 
-.profile img {
+.container img {
     border: solid black;
     border-radius: 10px;
-    width: 280px;
+    width: 200px;
     margin: 10px;
 
+}
+
+.container li {
+list-style: none;
 }
 
 .descriptionBlock {

@@ -8,17 +8,17 @@ import {Routes, Route } from "react-router-dom";
 import MessagesContainer from "./component/Messages/MessagesContainer";
 import UsersContainer from "./component/Users/UsersContainer";
 
-function App(props) {
+function App() {
     return (<div className='container'>
         <Header/>
-        <Navbar store={props.store}/>
+        <Navbar/>
         <div className='app-content'>
             <Routes>
-                <Route path='/profile' element={<Profile store={props.store}/>}/>
-                <Route path='/messages' element={<MessagesContainer store={props.store}/>}/>
+                <Route path='/profile' element={<Profile />}/>
+                <Route path='/messages' element={<MessagesContainer />}/>
                 <Route path='/music' element={<Music/>}/>
                 <Route path='/settings' element={<Settings/>}/>
-                <Route path='/users' element={<UsersContainer store={props.store}/>}/>
+                <Route path='/users' element={<UsersContainer />}/>
             </Routes>
         </div>
     </div>);

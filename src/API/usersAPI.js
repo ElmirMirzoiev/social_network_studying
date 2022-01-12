@@ -1,17 +1,11 @@
-// import axios from "axios";
-// import usersReducer from "../redux/userReducer";
-//
-// export const getUsersData = () => {
-//
-//     return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page`)
-//         .then(response => {
-//             return response.data
-//         });
-// }
+import {axiosInstance} from "./aixosInstace";
 
 
-
-// axios.get(`https://social-network.samuraijs.com/api/1.0/users`)
-//     .then(response => {
-//         return response.data
-//     })
+export const UsersAPI = {
+    getUsersData(currentPage = 1, pageSize = 20) {
+        return axiosInstance.get(`users?page=${currentPage}&count=${pageSize}`)
+            .then(response => {
+                return response.data
+            });
+    }
+}

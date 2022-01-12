@@ -1,6 +1,6 @@
 import {FOLLOW_USER, SET_CURRENT_PAGE, SET_USERS_DATA, TOGGLE_IS_LOADING, UNFOLLOW_USER} from "./types";
 
-let initialState = {
+const initialState = {
     users: [],
     pageSize: 20,
     error: null,
@@ -59,5 +59,7 @@ export const unfollow = (id) => ({type: UNFOLLOW_USER, id})
 export const setUsersData = (users, totalCount) => ({type: SET_USERS_DATA, users, totalCount})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
+
+
 
 export default usersReducer;

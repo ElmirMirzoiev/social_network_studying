@@ -1,18 +1,18 @@
 import React, {useEffect} from 'react';
 import s from './Users.module.css';
 import userImg from '../../assets/images/user.png';
-import axios from "axios";
 import Preloader from "../Preloader/Preloader";
+import {Pagination} from "@mui/material";
+import {UsersAPI} from "../../API/usersAPI";
 
 function Users(props) {
 
     useEffect(() => {
         props.toggleIsLoading(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${props.currentPage}&count=${props.pageSize}`)
-            .then(response => {
-                props.setUsersData(response.data.items, response.data.totalCount)
-                props.toggleIsLoading(false)
-            })
+        UsersAPI.getUsersData(props.currentPage, props.pageSize).then( data => {
+            props.setUsersData(data.items, data.totalCount)
+            props.toggleIsLoading(false)
+        })
         console.log('1')
     }, [props.currentPage])
 
@@ -22,8 +22,7 @@ function Users(props) {
         }
     }, [])
 
-    const userElement = props.users.map(u => <div className={s.userItem}
-                                                  key={u.id}>
+    const userElement = props.users.map(u => <li key={u.id} className={s.userItem}>
         <img alt='UserPhoto' src={u.photos.small !== null ? u.photos.small : userImg} className={s.img}/>
         <span>{u.name}</span>
         <span>{'UniqueUrlName'}</span>
@@ -34,30 +33,32 @@ function Users(props) {
             : <button className={s.btn} onClick={() => {
                 props.follow(u.id)
             }}> Follow </button>}
-    </div>)
-    const pagination = () => {
-        const pagesCount = Math.ceil(props.totalCount / props.pageSize)
-        const pages = [];
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i)
-        }
-        return pages.map(p => <span
-            onClick={() => (props.setCurrentPage(p))}
-            key={p.id}
-            className={props.currentPage === p ? s.selected_Page : s.pagesList}>
-                {p}
-            </span>)
-    }
+    </li>)
 
+    const pagesTotal = Math.ceil(props.totalCount / props.pageSize)
+
+    if (!!props.isLoading) {
+        return <Preloader/>
+    }
     return (
         <div className={s.container}>
-            <div className={s.pagination}>
-                {pagination()}
-                {props.isLoading ? <Preloader/> : null}
+            <div>
+                {!!pagesTotal && (
+                    <Pagination
+                        count={pagesTotal}
+                        defaultPage={1}
+                        page={props.currentPage}
+                        onChange={(_, page) => props.setCurrentPage(page)}
+                        showFirstButton
+                        showLastButton
+                        shape={'rounded'}
+                        color={'primary'}
+                    />)}
+                {/*{props.isLoading && <Preloader/>}*/}
             </div>
-            <div className={s.usersList}>
+            <ul className={s.usersList}>
                 {userElement}
-            </div>
+            </ul>
         </div>
     )
 }

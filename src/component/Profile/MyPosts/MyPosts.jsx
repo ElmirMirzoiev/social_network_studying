@@ -1,23 +1,26 @@
 import React from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post';
+import {useDispatch} from "react-redux";
+import {addPost, updatePostText} from "../../../store/profileReducer";
 
 
-function MyPosts(props) {
+const MyPosts= (props) => {
 
-    let state = props.profilePage;
-    //
-    let postElement = state.postData.map(p => <Post key={p.id}
+const dispatch = useDispatch();
+
+    const postElement = props.postData.map(p => <Post key={p.id}
                                                     img={p.img}
                                                     message={p.message}
                                                     likesCount={p.likesCount}/>)
-    let addPost = () => {
-        props.addPost();
+    const addNewPost = () => {
+        dispatch(addPost());
     }
-    let onPostChange = (e) => {
+    const onPostChange = (e) => {
         let text = e.target.value
-        props.onPostChange(text);
+        dispatch(updatePostText(text));
     }
+
     return (
         <div className={s.MyPosts}>
             <h2> My posts </h2>
@@ -25,12 +28,14 @@ function MyPosts(props) {
                 <textarea className={s.input}
                           placeholder='Enter your message'
                           onChange={onPostChange}
-                          value={state.newPostText}/>
+                          value={props.newPostText}/>
             </div>
-            <div>
-                <button onClick={addPost} className={s.btn}>Add</button>
+            <span>
+                <button onClick={addNewPost} className={s.btn}>Add</button>
+            </span>
+            <span>
                 <button className={s.btn}>Remove</button>
-            </div>
+            </span>
             <div className={s.postItem}>
                 {postElement}
             </div>

@@ -1,4 +1,4 @@
-import {addMessageActionCreator, updateMessageTextActionCreator} from "../../redux/messagesReducer";
+import {addMessageActionCreator, updateMessageTextActionCreator} from "../../store/messagesReducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
 

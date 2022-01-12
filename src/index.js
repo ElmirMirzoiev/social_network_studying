@@ -1,4 +1,5 @@
-import store from "./redux/reduxStore";
+import store from "./store/reduxStore";
+// import store from '../src/reduxToolkit/index';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -7,11 +8,13 @@ import {BrowserRouter} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import {Provider} from "react-redux";
 
+
+
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Provider store={store}>
-                <App store={store} />
+                <App/>
             </Provider>
         </BrowserRouter>
     </React.StrictMode>,
