@@ -1,5 +1,6 @@
 import {ADD_POST, SET_USER_PROFILE, UPDATE_POST_TEXT} from "./types";
 import userImg from '../assets/images/user.png'
+import {ProfileAPI} from "../API/profileAPI";
 
 let initialState = {
     userProfile: null,
@@ -53,5 +54,16 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = () => ({type: ADD_POST});
 export const updatePostText = (text) => ({type: UPDATE_POST_TEXT, newText: text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+
+export const setUserProfileThunk = (id) => {
+    return (dispatch) => {
+        ProfileAPI.getProfileData(id)
+            .then(data => {
+                setTimeout (() => {
+                    dispatch(setUserProfile(data))
+                }, 500)
+            })
+    }
+}
 
 export default profileReducer;

@@ -1,6 +1,7 @@
 .container {
+    margin: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-decoration: none;
 }
 
@@ -8,14 +9,19 @@
     border: solid black;
     border-radius: 10px;
     width: 200px;
-    margin: 10px;
-
 }
 
 .container li {
 list-style: none;
 }
 
-.descriptionBlock {
-    padding: 20px;
+.profileInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.status {
+    margin: 10px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
 }

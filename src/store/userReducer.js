@@ -1,4 +1,5 @@
 import {FOLLOW_USER, SET_CURRENT_PAGE, SET_USERS_DATA, TOGGLE_IS_LOADING, UNFOLLOW_USER} from "./types";
+import {UsersAPI} from "../API/usersAPI";
 
 const initialState = {
     users: [],
@@ -60,6 +61,16 @@ export const setUsersData = (users, totalCount) => ({type: SET_USERS_DATA, users
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
 
-
+export const setUsersThunk = (currentPage) => {
+    return (dispatch) => {
+        dispatch(toggleIsLoading(true))
+        UsersAPI.getUsersData(currentPage).then(data => {
+            setTimeout (() => {
+                dispatch(setUsersData(data.items, data.totalCount))
+                dispatch(toggleIsLoading(false))
+            }, 500)
+        })
+    }
+}
 
 export default usersReducer;

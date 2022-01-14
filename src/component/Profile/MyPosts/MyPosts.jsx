@@ -5,31 +5,30 @@ import {useDispatch} from "react-redux";
 import {addPost, updatePostText} from "../../../store/profileReducer";
 
 
-const MyPosts= (props) => {
+const MyPosts = (props) => {
 
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const postElement = props.postData.map(p => <Post key={p.id}
-                                                    img={p.img}
-                                                    message={p.message}
-                                                    likesCount={p.likesCount}/>)
+                                                      img={p.img}
+                                                      message={p.message}
+                                                      likesCount={p.likesCount}/>)
     const addNewPost = () => {
         dispatch(addPost());
     }
     const onPostChange = (e) => {
-        let text = e.target.value
-        dispatch(updatePostText(text));
-    }
+        dispatch(updatePostText(e.target.value)
+    )}
 
     return (
         <div className={s.MyPosts}>
-            <h2> My posts </h2>
             <div>
                 <textarea className={s.input}
                           placeholder='Enter your message'
-                          onChange={onPostChange}
-                          value={props.newPostText}/>
+                          value={props.newPostText}
+                          onChange={onPostChange}/>
             </div>
+            <h2> My posts </h2>
             <span>
                 <button onClick={addNewPost} className={s.btn}>Add</button>
             </span>

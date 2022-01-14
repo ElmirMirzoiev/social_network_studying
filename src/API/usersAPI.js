@@ -7,5 +7,6 @@ export const UsersAPI = {
             .then(response => {
                 return response.data
             });
-    }
+    },
 }
+
