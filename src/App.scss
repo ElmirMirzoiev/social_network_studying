@@ -1,0 +1,29 @@
+.auth_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.app-wrapper {
+  grid-template-rows: 100px 1fr;
+  grid-template-columns:2fr 10fr;
+  grid-gap: 10px;
+  background-color: #E8F1FA;
+  background-size: auto;
+  padding: 2% 100px 5%;
+  display: grid;
+  width: auto;
+  grid-template-areas:
+"h h"
+"n c";
+
+  .app-content {
+    grid-area: c;
+    padding: 5px;
+    background: #FFFFFF;
+    border: solid 2px #6495ED;
+    /*border-radius: 15px;*/
+  }
+}
+

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const ProfileStatus = () => {
-    const [status, setStatus] = useState('Status')
+    const [status, setStatus] = useState('Double click to change status')
     const [editMode, setEditMode] = useState(false)
 
     const activateEditMode = () => {

@@ -1,9 +1,9 @@
 import React from 'react';
-import preloader from './../../assets/images/loading.gif'
+import preloader from '../images/loading.gif'
 
 const imgStyle = {
-    width: '200px',
-    height: '200px',
+    width: '350px',
+    height: '350px',
     margin: '0',
 };
 

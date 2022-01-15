@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Users.module.css';
+import styles from './Users.module.scss';
 import userImg from '../../assets/images/user.png';
 import {Button, Pagination} from "@mui/material";
 import {follow, setCurrentPage, unfollow} from "../../store/userReducer";
@@ -7,33 +7,33 @@ import {NavLink} from "react-router-dom";
 
 function Users(props) {
 
-    const userElement = props.usersPage.users.map(u => <li key={u.id} className={s.userItem}>
-        <NavLink to={'/profile/' + u.id}>
-            <img alt='UserPhoto' src={u.photos.small !== null ? u.photos.small : userImg} className={s.img}/>
+    const userElement = props.usersPage.users.map(users => <li key={users.id} className={styles.userItem}>
+        <NavLink to={'/profile/' + users.id}>
+            <img alt='UserPhoto' src={users.photos.small !== null ? users.photos.small : userImg} className={styles.img}/>
         </NavLink>
-        <span>{u.name}</span>
+        <span>{users.name}</span>
         <span>{'UniqueUrlName'}</span>
 
-        {u.followed
+        {users.followed
 
             ?  <Button variant="contained"
                        sx={{width: 80, margin: 1}}
                        size="small"
                         onClick={() => {
-                props.dispatch(unfollow(u.id))
+                props.dispatch(unfollow(users.id))
             }}>Unfollow</Button>
 
             : <Button variant="contained"
                       sx={{width: 80, margin: 1}}
                       size="small"
                       onClick={() => {
-                          props.dispatch(follow(u.id))
+                          props.dispatch(follow(users.id))
                       }}>Follow</Button>}
     </li>)
     const pagesTotal = Math.ceil(props.usersPage.totalCount / props.usersPage.pageSize)
 
     return (
-        <div className={s.container}>
+        <div className={styles.container}>
             <div>
                 {!!pagesTotal && (
                     <Pagination
@@ -47,8 +47,8 @@ function Users(props) {
                         color={'primary'}
                     />)}
             </div>
-            <div className={s.usersBlock}>
-                <ul className={s.usersList}>
+            <div className={styles.usersBlock}>
+                <ul className={styles.usersList}>
                     {userElement}
                 </ul>
             </div>

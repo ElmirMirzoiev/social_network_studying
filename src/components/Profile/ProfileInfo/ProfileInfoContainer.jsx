@@ -2,9 +2,8 @@ import {useDispatch, useSelector} from "react-redux";
 import ProfileInfo from "./ProfileInfo";
 import React, {useEffect} from "react";
 import {setUserProfile, setUserProfileThunk} from "../../../store/profileReducer";
-import Preloader from "../../Preloader/Preloader";
+import Preloader from "../../../assets/Preloader/Preloader";
 import {useParams} from "react-router-dom";
-
 
 const ProfileInfoContainer = () => {
 
