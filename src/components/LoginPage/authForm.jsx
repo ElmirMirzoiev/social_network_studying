@@ -11,7 +11,7 @@ const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
 };
 
-const InputForm = () => {
+const AuthForm = () => {
     return (
             <Form
                 name="basic"
@@ -79,4 +79,4 @@ const InputForm = () => {
         );
 }
 
-export default InputForm;
+export default AuthForm;

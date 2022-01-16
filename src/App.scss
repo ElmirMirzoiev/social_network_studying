@@ -5,7 +5,7 @@
   height: 100%;
 }
 
-.app-wrapper {
+.app_wrapper {
   grid-template-rows: 100px 1fr;
   grid-template-columns:2fr 10fr;
   grid-gap: 10px;
@@ -18,7 +18,7 @@
 "h h"
 "n c";
 
-  .app-content {
+  .app_content {
     grid-area: c;
     padding: 5px;
     background: #FFFFFF;

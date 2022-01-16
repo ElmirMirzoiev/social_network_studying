@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './LoginPage.module.scss'
-import InputForm from "./InputForm";
+import AuthForm from "./authForm";
 
 function LoginPage() {
     return (
@@ -8,7 +8,7 @@ function LoginPage() {
             <h1>Login Page</h1>
             <h4>Please enter your data</h4>
            <div className={styles.block}>
-               <InputForm/>
+               <AuthForm/>
            </div>
         </section>
     );

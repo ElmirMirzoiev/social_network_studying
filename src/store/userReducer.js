@@ -3,7 +3,7 @@ import {UsersAPI} from "../API/usersAPI";
 
 const initialState = {
     users: [],
-    pageSize: 20,
+    pageSize: 21,
     error: null,
     totalCount: null,
     currentPage: 1,

@@ -1,7 +1,7 @@
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setUsersThunk} from "../../store/userReducer";
 import Users from "./Users";
-import React, {useEffect} from "react";
 
 const UsersContainer = () => {
 

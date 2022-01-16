@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Users.module.scss';
-import userImg from '../../assets/images/user.png';
-import {Button, Pagination} from "@mui/material";
-import {follow, setCurrentPage, unfollow} from "../../store/userReducer";
 import {NavLink} from "react-router-dom";
+import {Button, Pagination} from "@mui/material";
+import userImg from '../../assets/images/user.png';
+import {follow, setCurrentPage, unfollow} from "../../store/userReducer";
 import Preloader from "../../assets/Preloader/Preloader";
+import styles from './Users.module.scss';
 
 function Users(props) {
 
@@ -48,7 +48,7 @@ function Users(props) {
                         shape={'rounded'}
                         color={'primary'}
                     />)}
-            </div>y
+            </div>
             {props.usersPage.isLoading
                 ? <div className={styles.preloader}>
                     <Preloader/>
@@ -58,7 +58,6 @@ function Users(props) {
                     {userElement}
                 </ul>
             }
-
         </div>
     )
 }
