@@ -14,7 +14,7 @@ import ProfileInfoContainer from "./components/Profile/ProfileInfo/ProfileInfoCo
 
 
 const App = () => {
-
+console.log('test')
     const {isAuth} = useSelector(state => state.auth)
     console.log(isAuth)
 
