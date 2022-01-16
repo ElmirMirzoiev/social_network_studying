@@ -1,18 +1,29 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 5px;
-  position: relative;
+
+  .preloader {
+    margin: 0 auto;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    //padding-left: 100px;
+  }
 
   .usersList {
     display: grid;
-    grid-template-columns: 250px 250px;
-    grid-template-rows: auto;
-    justify-content: flex-start;
+    grid-gap: 20px;
+    padding: 0;
+    grid-template-columns: 250px 250px 250px;
+    justify-content: center;
+    align-content: center;
 
     .userItem {
       display: flex;
       flex-direction: column;
+      align-items: center;
+
 
       .img {
         object-fit: contain;
@@ -20,8 +31,8 @@
         margin-top: 20px;
         border: solid black;
         padding: 2px;
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
       }
     }
   }

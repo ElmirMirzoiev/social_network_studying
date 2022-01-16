@@ -2,7 +2,7 @@ import React from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post';
 import {useDispatch} from "react-redux";
-import {addPost, updatePostText} from "../../../store/profileReducer";
+import {addPost, updatePostText} from "../../../../store/profileReducer";
 
 
 const MyPosts = (props) => {
@@ -18,17 +18,19 @@ const MyPosts = (props) => {
     }
     const onPostChange = (e) => {
         dispatch(updatePostText(e.target.value)
-    )}
+        )
+    }
 
     return (
         <div className={s.MyPosts}>
+            <h2> My posts </h2>
             <div>
                 <textarea className={s.input}
                           placeholder='Enter your message'
                           value={props.newPostText}
                           onChange={onPostChange}/>
             </div>
-            <h2> My posts </h2>
+
             <span>
                 <button onClick={addNewPost} className={s.btn}>Add</button>
             </span>

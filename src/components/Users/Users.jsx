@@ -4,24 +4,26 @@ import userImg from '../../assets/images/user.png';
 import {Button, Pagination} from "@mui/material";
 import {follow, setCurrentPage, unfollow} from "../../store/userReducer";
 import {NavLink} from "react-router-dom";
+import Preloader from "../../assets/Preloader/Preloader";
 
 function Users(props) {
 
     const userElement = props.usersPage.users.map(users => <li key={users.id} className={styles.userItem}>
         <NavLink to={'/profile/' + users.id}>
-            <img alt='UserPhoto' src={users.photos.small !== null ? users.photos.small : userImg} className={styles.img}/>
+            <img alt='UserPhoto' src={users.photos.small !== null ? users.photos.small : userImg}
+                 className={styles.img}/>
         </NavLink>
         <span>{users.name}</span>
         <span>{'UniqueUrlName'}</span>
 
         {users.followed
 
-            ?  <Button variant="contained"
-                       sx={{width: 80, margin: 1}}
-                       size="small"
-                        onClick={() => {
-                props.dispatch(unfollow(users.id))
-            }}>Unfollow</Button>
+            ? <Button variant="contained"
+                      sx={{width: 80, margin: 1}}
+                      size="small"
+                      onClick={() => {
+                          props.dispatch(unfollow(users.id))
+                      }}>Unfollow</Button>
 
             : <Button variant="contained"
                       sx={{width: 80, margin: 1}}
@@ -34,7 +36,7 @@ function Users(props) {
 
     return (
         <div className={styles.container}>
-            <div>
+            <div className={styles.pagination}>
                 {!!pagesTotal && (
                     <Pagination
                         count={pagesTotal}
@@ -46,12 +48,17 @@ function Users(props) {
                         shape={'rounded'}
                         color={'primary'}
                     />)}
-            </div>
-            <div className={styles.usersBlock}>
-                <ul className={styles.usersList}>
+            </div>y
+            {props.usersPage.isLoading
+                ? <div className={styles.preloader}>
+                    <Preloader/>
+                </div>
+
+                : <ul className={styles.usersList}>
                     {userElement}
                 </ul>
-            </div>
+            }
+
         </div>
     )
 }
