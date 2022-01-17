@@ -2,11 +2,7 @@ import {FOLLOW_USER, SET_CURRENT_PAGE, SET_USERS_DATA, TOGGLE_IS_LOADING, UNFOLL
 import {UsersAPI} from "../API/usersAPI";
 
 const initialState = {
-    users: [
-        {
-            photos: null
-        }
-    ],
+    users: [],
     pageSize: 21,
     error: null,
     totalCount: null,
