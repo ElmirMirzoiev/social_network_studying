@@ -2,7 +2,11 @@ import {FOLLOW_USER, SET_CURRENT_PAGE, SET_USERS_DATA, TOGGLE_IS_LOADING, UNFOLL
 import {UsersAPI} from "../API/usersAPI";
 
 const initialState = {
-    users: [],
+    users: [
+        {
+            photos: null
+        }
+    ],
     pageSize: 21,
     error: null,
     totalCount: null,
@@ -36,13 +40,13 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS_DATA:
             return {
                 ...state,
-                users:  action.users,
+                users: action.users,
                 totalCount: action.totalCount
             }
         case SET_CURRENT_PAGE:
             return {
                 ...state,
-               currentPage: action.currentPage
+                currentPage: action.currentPage
             }
         case TOGGLE_IS_LOADING:
             return {
@@ -59,13 +63,13 @@ export const follow = (id) => ({type: FOLLOW_USER, id})
 export const unfollow = (id) => ({type: UNFOLLOW_USER, id})
 export const setUsersData = (users, totalCount) => ({type: SET_USERS_DATA, users, totalCount})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
+export const toggleIsLoading = (isLoading) => ({type: TOGGLE_IS_LOADING, isLoading})
 
 export const setUsersThunk = (currentPage) => {
     return (dispatch) => {
         dispatch(toggleIsLoading(true))
         UsersAPI.getUsersData(currentPage).then(data => {
-            setTimeout (() => {
+            setTimeout(() => {
                 dispatch(setUsersData(data.items, data.totalCount))
                 dispatch(toggleIsLoading(false))
             }, 500)

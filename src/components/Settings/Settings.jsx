@@ -1,9 +1,11 @@
 import React from 'react';
 
-function Settings() {
-    return (
-        <div>Settings</div>
-    );
-}
+const Settings = () => {
+  return (
+    <>
+      <div style={{margin: 100, fontSize: 50}}>Settings</div>
+    </>
+  );
+};
 
 export default Settings;

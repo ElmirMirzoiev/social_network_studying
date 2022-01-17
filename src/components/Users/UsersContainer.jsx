@@ -17,9 +17,8 @@ const UsersContainer = () => {
             <Users usersPage={usersPage}
                    dispatch={dispatch}/>
         </>
-    )
-
-}
+    );
+};
 
 export default UsersContainer;
 

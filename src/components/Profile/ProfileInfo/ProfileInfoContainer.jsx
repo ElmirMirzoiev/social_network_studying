@@ -18,14 +18,6 @@ const ProfileInfoContainer = () => {
         };
     }, [dispatch, params])
 
-    // if (!profileData) {
-    //     return <Preloader/>
-    // }
-
-    // {!profileData && (
-    //
-    // )}
-
     return (
         <>
             <ProfileInfo profileData={profileData}/>

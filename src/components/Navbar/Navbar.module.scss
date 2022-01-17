@@ -1,36 +1,31 @@
 .nav {
+
   grid-area: n;
   background: #FFFFFF;
-  border: solid 2px #1976d2;
-  /*border-radius: 15px;*/
-  padding: 20px;
+  padding: 15px 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 180px;
 
-  .link_item {
-    background-color: #1976d2;
-    padding: 5px;
-    margin: 15px;
-    display: block;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    line-height: 35px;
-    transition: 0.4s;
-  }
-  .link_item:hover {
-    background-color: grey;
-  }
-  .active_link {
-    background-color: grey;
-    padding: 5px;
-    margin: 15px;
-    display: block;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    line-height: 35px;
-    transition: 0.4s;
+  button {
+    margin: 5px 5px;
+    padding: 0;
+    font-family: var(--main-font-family);
+
+    a {
+      padding: 5px;
+      width: 100%;
+      display: block;
+      font-weight: bold;
+      color: #1976d2;
+      font-size: 15px;
+    }
+    [aria-current] {
+      background-color: #b4d3f0;
+      border-radius: 3px;
+    }
   }
 }
 

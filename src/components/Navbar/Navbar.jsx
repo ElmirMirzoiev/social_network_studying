@@ -1,11 +1,10 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
-import s from "./Navbar.module.scss";
+import { NavLink } from "react-router-dom";
+import Button from "@mui/material/Button";
+import styles from "./Navbar.module.scss";
 
 
 function Navbar() {
-
-    const setActive = navData => navData.isActive ? s.active_link : s.link_item;
 
     const navLinks = [
         {
@@ -27,8 +26,10 @@ function Navbar() {
     ]
 
     return (
-        <nav className={s.nav}>
-            {navLinks.map( nav => <NavLink key={nav.title} to={nav.path} className={setActive}> {nav.title} </NavLink> )}
+        <nav className={styles.nav}>
+            {navLinks.map( nav => <Button key={nav.title}>
+                <NavLink  to={nav.path} > {nav.title} </NavLink>
+            </Button> )}
         </nav>
     );
 }
