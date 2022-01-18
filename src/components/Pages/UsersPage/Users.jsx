@@ -20,7 +20,6 @@ const Users = (props) => {
             <span>{user.name}</span>
             <span>{'UniqueUrlName'}</span>
 
-
             {user.followed
                 ? <Button variant="contained"
                           sx={{width: 80, margin: 1}}
