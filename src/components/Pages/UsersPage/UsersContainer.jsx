@@ -10,7 +10,7 @@ const UsersContainer = () => {
 
     useEffect(() => {
         dispatch(setUsersThunk(usersPage.currentPage))
-    }, [dispatch, usersPage.currentPage])
+    }, [dispatch, usersPage.currentPage, usersPage.users.followed])
 
     return (
         <>

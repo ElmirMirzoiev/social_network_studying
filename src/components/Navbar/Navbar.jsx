@@ -8,8 +8,8 @@ function Navbar() {
 
     const navLinks = [
         {
-            path: '/profile/2',
-            title: 'Profile'
+            path: '/profile/21568',
+            title: 'My Profile'
         },
         {
             path: '/users/',

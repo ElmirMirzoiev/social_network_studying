@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+// import {useSelector} from 'react-redux';
 import {Route, Routes} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -13,8 +13,8 @@ import FriendsContainer from "./components/Pages/FriendsPage/FriendsContainer";
 
 
 const App = () => {
-    const {isAuth} = useSelector((state) => state.auth);
-    console.log(isAuth);
+    // const {isAuth} = useSelector((state) => state.auth);
+    // console.log(isAuth);
 
     const routes = [
         {

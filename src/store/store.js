@@ -4,7 +4,7 @@ import {combineReducers} from "redux";
 import messagesReducer from "./Reducers/messagesReducer";
 import profileReducer from "./Reducers/profileReducer";
 import usersReducer from "./Reducers/userReducer";
-import {authReducer} from "./Reducers/authReducer";
+import authReducer from "./Reducers/authReducer";
 import friendsReducer from "./Reducers/friendsReducer";
 
 

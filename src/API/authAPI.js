@@ -1,9 +1,9 @@
 import {baseURL} from "./baseURL";
 
 
-export const profileAPI = {
-    getProfileData(userId) {
-        return baseURL.get(`profile/${userId}`)
+export const authAPI = {
+    getAuthData() {
+        return baseURL.get(`auth/me`)
             .then(response => {
                 return response.data
             });

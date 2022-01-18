@@ -1,7 +1,7 @@
 import {baseURL} from "./baseURL";
 
 
-export const UsersAPI = {
+export const usersAPI = {
     getUsersData(currentPage = 1, pageSize = 21) {
 
         return baseURL.get(`users?page=${currentPage}&count=${pageSize}`)
@@ -15,14 +15,14 @@ export const UsersAPI = {
                 return response.data
             });
     },
-    followUser(userId) {
-        return baseURL.post(`follow/${userId}`)
+    followUser(id) {
+        return baseURL.post(`follow/${id}`)
             .then(response => {
                 return response
             });
     },
-    unfollowUser(userId) {
-        return baseURL.delete(`follow/${userId}`)
+    unfollowUser(id) {
+        return baseURL.delete(`follow/${id}`)
             .then(response => {
                 return response
             });

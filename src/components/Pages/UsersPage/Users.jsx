@@ -30,6 +30,7 @@ const Users = (props) => {
                               props.dispatch(unfollowUserThunk(user.id))}>
                     Unfollow
                 </Button>
+
                 : <Button variant="contained"
                           sx={{width: 80, margin: 1}}
                           size="small"

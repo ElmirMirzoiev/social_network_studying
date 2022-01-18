@@ -4,7 +4,7 @@ import {
     TOGGLE_IS_LOADING,
     SET_FRIENDS_DATA,
 } from '../types';
-import {UsersAPI} from "../../API/usersAPI";
+import {usersAPI} from "../../API/usersAPI";
 
 
 const initialState = {
@@ -50,7 +50,6 @@ const friendsReducer = (state = initialState, action) => {
         default:
             return state;
     }
-
 }
 
 export const unfollow = (userId) => ({type: UNFOLLOW_USER, userId})
@@ -61,7 +60,7 @@ export const toggleIsLoading = (isLoading) => ({type: TOGGLE_IS_LOADING, isLoadi
 export const setFriendsThunk = () => {
     return (dispatch) => {
         dispatch(toggleIsLoading(true))
-        UsersAPI.getFriendsData().then(data => {
+        usersAPI.getFriendsData().then(data => {
             dispatch(setFriendsData(data.items, data.totalCount))
             setTimeout(() => {
                 dispatch(toggleIsLoading(false))
