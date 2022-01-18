@@ -1,4 +1,4 @@
-import {ADD_MESSAGE, UPDATE_MESSAGE_TEXT} from "./types";
+import {ADD_MESSAGE, UPDATE_MESSAGE_TEXT} from "../types";
 
 let initialState = {
     newMessageText: '',

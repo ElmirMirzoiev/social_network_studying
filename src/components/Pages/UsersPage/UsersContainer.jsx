@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {setUsersThunk} from "../../store/userReducer";
+import {setUsersThunk} from "../../../store/Reducers/userReducer";
 import Users from "./Users";
 
 const UsersContainer = () => {
@@ -14,7 +14,7 @@ const UsersContainer = () => {
 
     return (
         <>
-            <Users usersPage={usersPage}
+            <Users {...usersPage}
                    dispatch={dispatch}/>
         </>
     );

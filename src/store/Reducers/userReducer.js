@@ -1,5 +1,11 @@
-import {FOLLOW_USER, SET_CURRENT_PAGE, SET_USERS_DATA, TOGGLE_IS_LOADING, UNFOLLOW_USER} from "./types";
-import {UsersAPI} from "../API/usersAPI";
+import {
+    FOLLOW_USER,
+    UNFOLLOW_USER,
+    SET_CURRENT_PAGE,
+    SET_USERS_DATA, TOGGLE_FOLLOW_IN_PROGRESS,
+    TOGGLE_IS_LOADING,
+} from '../types';
+import {UsersAPI} from '../../API/usersAPI';
 
 const initialState = {
     users: [],
@@ -7,7 +13,8 @@ const initialState = {
     error: null,
     totalCount: null,
     currentPage: 1,
-    isLoading: false
+    isLoading: false,
+    followInProgress: []
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -49,6 +56,13 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.isLoading
             }
+        case TOGGLE_FOLLOW_IN_PROGRESS:
+            return {
+                ...state,
+                followInProgress: action.isFetching
+                    ? [...state.followInProgress, action.userId]
+                    : state.followInProgress.filter(id => id !== action.userId)
+            }
         default:
             return state;
     }
@@ -56,21 +70,49 @@ const usersReducer = (state = initialState, action) => {
 }
 
 export const follow = (id) => ({type: FOLLOW_USER, id})
-export const unfollow = (id) => ({type: UNFOLLOW_USER, id})
+export const unfollow = (userId) => ({type: UNFOLLOW_USER, userId})
 export const setUsersData = (users, totalCount) => ({type: SET_USERS_DATA, users, totalCount})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const toggleIsLoading = (isLoading) => ({type: TOGGLE_IS_LOADING, isLoading})
+export const toggleFollowInProgress = (isFetching, userId) => ({type: TOGGLE_FOLLOW_IN_PROGRESS, isFetching, userId})
 
 export const setUsersThunk = (currentPage) => {
     return (dispatch) => {
         dispatch(toggleIsLoading(true))
         UsersAPI.getUsersData(currentPage).then(data => {
+            dispatch(setUsersData(data.items, data.totalCount))
             setTimeout(() => {
-                dispatch(setUsersData(data.items, data.totalCount))
                 dispatch(toggleIsLoading(false))
             }, 500)
+
         })
     }
-}
+};
+
+export const followUserThunk = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowInProgress(true, userId))
+        UsersAPI.followUser(userId).then(response => {
+            if (response.data.resultCode === 0) {
+
+            }
+            dispatch(follow(userId))
+            dispatch(toggleFollowInProgress(false, userId))
+        })
+    }
+};
+
+export const unfollowUserThunk = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowInProgress(true, userId))
+        UsersAPI.unfollowUser(userId).then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(unfollow(userId))
+            }
+            dispatch(toggleFollowInProgress(false, userId))
+        })
+    }
+};
+
 
 export default usersReducer;

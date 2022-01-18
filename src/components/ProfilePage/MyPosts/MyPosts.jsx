@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './MyPosts.module.css'
-import Post from './Post';
+import Post from './Post/Post';
 import {useDispatch} from "react-redux";
-import {addPost, updatePostText} from "../../../../store/profileReducer";
+import {addPost, updatePostText} from "../../../store/Reducers/profileReducer";
 
 
 const MyPosts = (props) => {

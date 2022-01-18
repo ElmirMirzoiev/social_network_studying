@@ -3,12 +3,13 @@ import {useSelector} from 'react-redux';
 import {Route, Routes} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Settings from './components/Settings/Settings';
-import MessagesContainer from './components/Messages/MessagesContainer';
-import UsersContainer from './components/Users/UsersContainer';
-import LoginPage from './components/LoginPage/LoginPage';
-import ProfileInfoContainer from './components/Profile/ProfileInfo/ProfileInfoContainer';
+import Settings from './components/Pages/SettingsPage/Settings';
+import MessagesContainer from './components/Pages/MessagesPage/MessagesContainer';
+import UsersContainer from './components/Pages/UsersPage/UsersContainer';
+import LoginPage from './components/Pages/LoginPage/LoginPage';
+import ProfileInfoContainer from './components/ProfilePage/ProfileInfo/ProfileInfoContainer';
 import './App.scss';
+import FriendsContainer from "./components/Pages/FriendsPage/FriendsContainer";
 
 
 const App = () => {
@@ -36,6 +37,10 @@ const App = () => {
             path: '/login',
             element: <LoginPage/>,
         },
+        {
+            path: '/friends',
+            element: <FriendsContainer/>,
+        }
     ];
 
     return (

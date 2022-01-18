@@ -1,6 +1,6 @@
-import {ADD_POST, SET_USER_PROFILE, UPDATE_POST_TEXT} from "./types";
-import userImg from '../assets/images/user.png'
-import {ProfileAPI} from "../API/profileAPI";
+import {ADD_POST, SET_USER_PROFILE, UPDATE_POST_TEXT} from "../types";
+import {ProfileAPI} from "../../API/profileAPI";
+import userImg from '../../assets/images/user.png'
 
 let initialState = {
     userProfile: null,
@@ -59,7 +59,7 @@ export const setUserProfileThunk = (id) => {
     return (dispatch) => {
         ProfileAPI.getProfileData(id)
             .then(data => {
-                setTimeout (() => {
+                setTimeout(() => {
                     dispatch(setUserProfile(data))
                 }, 500)
             })

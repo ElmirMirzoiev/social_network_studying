@@ -1,4 +1,4 @@
-import {IS_AUTH} from "./types";
+import {IS_AUTH} from "../types";
 
 
 const initialState = {

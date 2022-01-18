@@ -1,9 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import ProfileInfo from "./ProfileInfo";
 import React, {useEffect} from "react";
-import {setUserProfile, setUserProfileThunk} from "../../../store/profileReducer";
+import {setUserProfile, setUserProfileThunk} from "../../../store/Reducers/profileReducer";
 import {useParams} from "react-router-dom";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import MyPostsContainer from "../MyPosts/MyPostsContainer";
 
 const ProfileInfoContainer = () => {
 

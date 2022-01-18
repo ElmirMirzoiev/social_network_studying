@@ -3,13 +3,13 @@
   flex-direction: column;
 
   .preloader {
-    margin: 0 auto;
+    margin: 50px auto;
+
   }
 
   .pagination {
     display: flex;
     justify-content: center;
-    //padding-left: 100px;
   }
 
   .usersList {
@@ -25,11 +25,19 @@
       flex-direction: column;
       align-items: center;
 
+      button {
+        margin-top: 5px;
+        width: 90px;
+        height: 25px;
+        font-size: smaller;
+        align-content: center;
+      }
+
       .img {
         object-fit: contain;
         border-radius: 10px;
         margin-top: 20px;
-        border: solid black;
+        border: 2px solid black;
         padding: 2px;
         width: 150px;
         height: 150px;

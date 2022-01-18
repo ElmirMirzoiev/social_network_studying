@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import Button from "@mui/material/Button";
 import styles from "./Navbar.module.scss";
 
@@ -16,6 +16,10 @@ function Navbar() {
             title: 'Users'
         },
         {
+            path: '/friends/',
+            title: 'Friends'
+        },
+        {
             path: '/messages/',
             title: 'Messages'
         },
@@ -23,13 +27,14 @@ function Navbar() {
             path: '/settings/',
             title: 'Settings'
         }
+
     ]
 
     return (
         <nav className={styles.nav}>
-            {navLinks.map( nav => <Button key={nav.title}>
-                <NavLink  to={nav.path} > {nav.title} </NavLink>
-            </Button> )}
+            {navLinks.map(nav => <Button key={nav.title}>
+                <NavLink to={nav.path}> {nav.title} </NavLink>
+            </Button>)}
         </nav>
     );
 }

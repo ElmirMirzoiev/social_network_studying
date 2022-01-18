@@ -1,5 +1,5 @@
 import React from 'react';
-import preloader from '../images/loading.gif'
+import preloader from '../../assets/images/loading.gif'
 
 const imgStyle = {
     width: '350px',
