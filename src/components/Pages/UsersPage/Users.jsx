@@ -1,44 +1,11 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import {Button, Pagination} from '@mui/material';
-import userImg from '../../../assets/images/user.png';
-import {followUserThunk, setCurrentPage, unfollowUserThunk} from '../../../store/Reducers/userReducer';
+import {Pagination} from '@mui/material';
+import {setCurrentPage} from '../../../store/Reducers/userReducer';
 import Preloader from '../../../sharedComponents/Preloader/Preloader';
+import UserItem from "./userItem/UserItem";
 import styles from './Users.module.scss';
 
 const Users = (props) => {
-
-    const userElement = props.users.map((user) =>
-        <li key={user.id} className={styles.userItem}>
-            <NavLink to={'/profile/' + user.id}>
-                <img alt='UserPhoto'
-                     src={user.photos.small !== null
-                         ? user.photos.small
-                         : userImg}
-                     className={styles.img}/>
-            </NavLink>
-            <span>{user.name}</span>
-            <span>{'UniqueUrlName'}</span>
-
-            {user.followed
-                ? <Button variant="contained"
-                          sx={{width: 80, margin: 1}}
-                          size="small"
-                          disabled={props.followInProgress.some(id => id === user.id)}
-                          onClick={() =>
-                              props.dispatch(unfollowUserThunk(user.id))}>
-                    Unfollow
-                </Button>
-
-                : <Button variant="contained"
-                          sx={{width: 80, margin: 1}}
-                          size="small"
-                          disabled={props.followInProgress.some(id => id === user.id)}
-                          onClick={() =>
-                              props.dispatch(followUserThunk(user.id))}>
-                    Follow
-                </Button>}
-        </li>);
 
     const pagesTotal = Math.ceil(props.totalCount / props.pageSize);
 
@@ -61,9 +28,8 @@ const Users = (props) => {
                 <Preloader/>
             </div>
 
-            : <ul className={styles.usersList}>
-                {userElement}
-            </ul>}
+            : <UserItem {...props} />}
+
     </div>);
 };
 

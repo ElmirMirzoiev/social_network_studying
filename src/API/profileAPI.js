@@ -7,5 +7,11 @@ export const profileAPI = {
             .then(response => {
                 return response.data
             });
+    },
+    getUserStatus(id) {
+        return baseURL.get(`profile/status/${id}`)
+            .then(response => {
+                return response.data
+            })
     }
 }

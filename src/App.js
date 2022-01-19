@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 // import {useSelector} from 'react-redux';
 import {Route, Routes} from 'react-router-dom';
 import Header from './components/Header/Header';
@@ -10,11 +10,18 @@ import LoginPage from './components/Pages/LoginPage/LoginPage';
 import ProfileInfoContainer from './components/ProfilePage/ProfileInfo/ProfileInfoContainer';
 import './App.scss';
 import FriendsContainer from "./components/Pages/FriendsPage/FriendsContainer";
+import {setAuthDataThunk} from "./store/Reducers/authReducer";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const App = () => {
-    // const {isAuth} = useSelector((state) => state.auth);
-    // console.log(isAuth);
+    const {isAuth} = useSelector((state) => state.auth);
+    const dispatch = useDispatch()
+    console.log(isAuth);
+
+    useEffect(() => {
+        dispatch(setAuthDataThunk())
+    }, [dispatch])
 
     const routes = [
         {

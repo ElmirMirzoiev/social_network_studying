@@ -1,21 +1,24 @@
 import React from 'react';
-import s from './MyPosts.module.css'
-import Post from './Post/Post';
 import {useDispatch} from "react-redux";
 import {addPost, updatePostText} from "../../../store/Reducers/profileReducer";
+import Post from './Post/Post';
+import s from './MyPosts.module.css'
 
 
-const MyPosts = (props) => {
+const MyPosts = ({postData, newPostText}) => {
+
 
     const dispatch = useDispatch();
+    const postElement = postData.map(post => <Post key={post.id}
+                                                   img={post.img}
+                                                   message={post.message}
+                                                   likesCount={post.likesCount}/>)
 
-    const postElement = props.postData.map(p => <Post key={p.id}
-                                                      img={p.img}
-                                                      message={p.message}
-                                                      likesCount={p.likesCount}/>)
+
     const addNewPost = () => {
         dispatch(addPost());
     }
+
     const onPostChange = (e) => {
         dispatch(updatePostText(e.target.value)
         )
@@ -27,7 +30,7 @@ const MyPosts = (props) => {
             <div>
                 <textarea className={s.input}
                           placeholder='Enter your message'
-                          value={props.newPostText}
+                          value={newPostText}
                           onChange={onPostChange}/>
             </div>
 

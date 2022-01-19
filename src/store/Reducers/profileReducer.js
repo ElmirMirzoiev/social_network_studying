@@ -1,9 +1,10 @@
-import {ADD_POST, SET_USER_PROFILE, UPDATE_POST_TEXT} from "../types";
+import {ADD_POST, SET_USER_STATUS, SET_USER_PROFILE, UPDATE_POST_TEXT} from "../types";
 import {profileAPI} from "../../API/profileAPI";
 import userImg from '../../assets/images/user.png'
 
 let initialState = {
     userProfile: null,
+    userStatus: '',
     newPostText: '',
     postData: [
         {
@@ -15,11 +16,12 @@ let initialState = {
         {
             id: 2,
             img: <img src={userImg} alt='ava'/>,
-            message: 'It is my first post!',
+            message: 'It is my second post!',
             likesCount: 0
         }
     ]
 };
+
 
 const profileReducer = (state = initialState, action) => {
 
@@ -44,7 +46,12 @@ const profileReducer = (state = initialState, action) => {
         case SET_USER_PROFILE:
             return {
                 ...state,
-                userProfile: action.profile
+                userProfile: action.profile,
+            }
+        case SET_USER_STATUS:
+            return {
+                ...state,
+                userStatus: action.userStatus
             }
         default:
             return state;
@@ -54,6 +61,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = () => ({type: ADD_POST});
 export const updatePostText = (text) => ({type: UPDATE_POST_TEXT, newText: text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const setUserStatus = (userStatus) => ({type: SET_USER_STATUS, userStatus})
 
 export const setUserProfileThunk = (id) => {
     return (dispatch) => {
@@ -62,6 +70,15 @@ export const setUserProfileThunk = (id) => {
                 setTimeout(() => {
                     dispatch(setUserProfile(data))
                 }, 500)
+            })
+    }
+}
+
+export const setUserStatusThunk = (id) => {
+    return (dispatch) => {
+        profileAPI.getUserStatus(id)
+            .then(data => {
+                dispatch(setUserStatus(data))
             })
     }
 }

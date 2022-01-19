@@ -12,42 +12,12 @@
     justify-content: center;
   }
 
-  .usersList {
-    display: grid;
-    grid-gap: 20px;
-    padding: 0;
-    grid-template-columns: 250px 250px 250px;
-    justify-content: center;
+  button {
+    margin-top: 5px;
+    //width: 90px;
+    height: 25px;
+    font-size: smaller;
     align-content: center;
-
-    .userItem {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform .5s;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-
-      button {
-        margin-top: 5px;
-        width: 90px;
-        height: 25px;
-        font-size: smaller;
-        align-content: center;
-      }
-
-      .img {
-        object-fit: contain;
-        border-radius: 10px;
-        margin-top: 20px;
-        border: 2px solid black;
-        padding: 2px;
-        width: 150px;
-        height: 150px;
-      }
-    }
   }
 }
 

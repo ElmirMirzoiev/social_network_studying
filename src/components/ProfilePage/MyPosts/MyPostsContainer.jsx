@@ -4,13 +4,12 @@ import {useSelector} from "react-redux";
 
 const MyPostsContainer = () => {
 
-    const postData = useSelector(state => state.profilePage.postData);
-    const newPostText = useSelector(state => state.profilePage.newPostText)
+    const profilePage = useSelector(state => state.profilePage)
 
     return (
         <>
-            <MyPosts postData={postData}
-                     newPostText={newPostText}
+            <MyPosts
+                {...profilePage}
             />
         </>
     )
