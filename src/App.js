@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-// import {useSelector} from 'react-redux';
 import {Route, Routes} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -8,20 +7,22 @@ import MessagesContainer from './components/Pages/MessagesPage/MessagesContainer
 import UsersContainer from './components/Pages/UsersPage/UsersContainer';
 import LoginPage from './components/Pages/LoginPage/LoginPage';
 import ProfileInfoContainer from './components/ProfilePage/ProfileInfo/ProfileInfoContainer';
-import './App.scss';
 import FriendsContainer from "./components/Pages/FriendsPage/FriendsContainer";
 import {setAuthDataThunk} from "./store/Reducers/authReducer";
 import {useDispatch, useSelector} from "react-redux";
+import './App.scss';
 
 
 const App = () => {
+
     const {isAuth} = useSelector((state) => state.auth);
     const dispatch = useDispatch()
-    console.log(isAuth);
+
 
     useEffect(() => {
         dispatch(setAuthDataThunk())
-    }, [dispatch])
+        console.log(isAuth);
+    }, [dispatch, isAuth])
 
     const routes = [
         {
@@ -53,6 +54,7 @@ const App = () => {
     return (
         <>
             <div className='app_wrapper'>
+                {/*{!isAuth ? <Navigate to='/login'/> : <Navigate to='/friends'/>}*/}
                 <Header/>
                 <Navbar/>
                 <div className='app_content'>

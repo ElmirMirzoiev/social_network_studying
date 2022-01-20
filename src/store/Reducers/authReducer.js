@@ -1,25 +1,20 @@
-import {IS_AUTH, SET_AUTH_DATA} from "../types";
+import {SET_AUTH_DATA} from "../types";
 import {authAPI} from "../../API/authAPI";
 
 
 const initialState = {
-    // id: 21568,
-    // id: null,
-    // email: null,
-    // login: null,
+    email: null,
+    login: null,
+    id: null,
     isAuth: false
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case IS_AUTH:
-            return {
-                isAuth: action.payload,
-            }
         case SET_AUTH_DATA:
             return {
                 ...state,
-                ...action.data,
+                ...action.payload,
                 isAuth: true
             }
         default:
@@ -27,19 +22,42 @@ const authReducer = (state = initialState, action) => {
     }
 };
 
-export const setAuthData = (data) => ({type: SET_AUTH_DATA, data});
+export const setAuthData = (payload) => ({type: SET_AUTH_DATA, payload});
 
 export const setAuthDataThunk = () => {
     return (dispatch) => {
-        // dispatch(toggleIsLoading(true))
-        authAPI.getAuthData().then(response => {
-            if (response.resultCode === 0)
+        authAPI.me().then(response => {
+            if (response.resultCode === 0) {
                 dispatch(setAuthData(response.data))
-            // setTimeout(() => {
-            //     dispatch(toggleIsLoading(false))
-            // }, 500)
+
+            }
+            if (response.resultCode === 1) {
+                console.log(response.messages)
+            }
         })
     }
 };
+
+export const logInThunk = (email, password) => {
+    return dispatch => {
+        authAPI.login(email, password).then(response => {
+            if (response.resultCode === 0) {
+                dispatch(setAuthDataThunk())
+            } else {
+                console.log(response.messages)
+            }
+        })
+    }
+}
+
+export const logOutThunk = () => {
+    return dispatch => {
+        authAPI.logout().then(response => {
+            dispatch(setAuthDataThunk())
+            console.log(response)
+        })
+    }
+}
+
 
 export default authReducer;

@@ -12,6 +12,12 @@
   font-weight: bold;
   font-size: 20px;
 
+  .isAuth {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   button {
     font-weight: bold;
     color: #FFF;

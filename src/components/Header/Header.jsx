@@ -1,23 +1,34 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Button from '@mui/material/Button';
+import {logOutThunk, setAuthDataThunk} from "../../store/Reducers/authReducer";
 import styles from './Header.module.scss';
 
 const Header = () => {
 
-    const {login, id, isAuth} = useSelector(state => state.auth)
+    const {login, isAuth} = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(setAuthDataThunk())
+    }, [dispatch, isAuth])
+
 
     return (
         <div className={styles.header}>
-      <span>
-          Social Network
-      </span>
             {
                 !isAuth
-                    ? <Link to={'/login'}> <Button>Login</Button> </Link>
+                    ? <div className={styles.isAuth}>
+                        <span>Social Network </span>
+                        <Link to={'/login'}> <Button>Login</Button> </Link>
+                    </div>
 
-                    : <Link to={`/profile/${id}`}>{login}_Mirzoiev</Link>
+                    : <div className={styles.isAuth}>
+                        <span>{login}</span>
+                        <Button onClick={dispatch(logOutThunk)}> LogOut </Button>
+                    </div>
+
             }
         </div>
     );

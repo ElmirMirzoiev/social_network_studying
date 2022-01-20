@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import {Button} from '@mui/material';
 import userImg from '../../../../assets/images/user.png';
 import {followUserThunk, unfollowUserThunk} from '../../../../store/Reducers/userReducer';
-import styles from '../userItem/UserItem.module.scss';
+import styles from './/UserItem.module.scss';
 
 const UserItem = ({users, followInProgress, dispatch}) => {
 

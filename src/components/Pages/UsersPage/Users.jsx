@@ -2,7 +2,7 @@ import React from 'react';
 import {Pagination} from '@mui/material';
 import {setCurrentPage} from '../../../store/Reducers/userReducer';
 import Preloader from '../../../sharedComponents/Preloader/Preloader';
-import UserItem from "./userItem/UserItem";
+import UserItem from "./UserItem/UserItem";
 import styles from './Users.module.scss';
 
 const Users = (props) => {
