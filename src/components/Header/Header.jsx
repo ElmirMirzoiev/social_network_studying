@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import Button from '@mui/material/Button';
 import {logOutThunk, setAuthDataThunk} from "../../store/Reducers/authReducer";
@@ -9,11 +9,6 @@ const Header = () => {
 
     const {login, isAuth} = useSelector(state => state.auth)
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(setAuthDataThunk())
-    }, [dispatch, isAuth])
-
 
     return (
         <div className={styles.header}>

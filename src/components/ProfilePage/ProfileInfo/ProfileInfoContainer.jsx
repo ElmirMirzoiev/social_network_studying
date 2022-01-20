@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 import React, {useEffect} from "react";
 import {
     setUserProfile, setUserStatus,
@@ -13,6 +13,7 @@ const ProfileInfoContainer = () => {
 
     const profileData = useSelector(state => state.profilePage.userProfile)
     const profilePage = useSelector(state => state.profilePage)
+    const {isAuth} = useSelector(state => state.auth)
 
     const dispatch = useDispatch();
     const params = useParams();
@@ -25,6 +26,8 @@ const ProfileInfoContainer = () => {
             dispatch(setUserStatus(null))
         };
     }, [dispatch, params])
+
+    if (!isAuth) return <Navigate to={'/login/'}/>;
 
     return (
         <>

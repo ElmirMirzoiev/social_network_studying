@@ -1,9 +1,14 @@
 import React from 'react';
+import {Navigate} from "react-router-dom";
+import {useSelector} from "react-redux";
 import AuthForm from "./AuthForm/AuthForm";
 import styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
 
+    const {isAuth} = useSelector(state => state.auth)
+    if (isAuth) return <Navigate to={'/friends/'}/>;
+    
     return (
         <div className={styles.authContainer}>
             <h1>Login Page</h1>
