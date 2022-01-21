@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 25px;
+  padding: 10PX;
   color: #FFF;
   background-color: #1976d2;
   box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
@@ -25,6 +25,7 @@
   }
 
   a {
+    text-decoration: none;
     color: #FFF;
   }
 }

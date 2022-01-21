@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="baad4c9b-48a1-4f15-a933-d76d22146fe4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/LoginPage/LoginPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/LoginPage/LoginPage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/LoginPage/authForm.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/MessagesPage/DialogItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/MessagesPage/DialogItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UsersPage/UserItem/UserItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UsersPage/UserItem/UserItem.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UsersPage/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UsersPage/Users.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/UsersPage/Users.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/UsersPage/Users.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/MyPosts/MyPosts.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/MyPosts/MyPosts.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/MyPosts/MyPostsContainer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/MyPosts/Post/Post.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/MyPosts/Post/Post.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/ProfileInfo/ProfileInfo.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/ProfileInfo/ProfileInfo.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/ProfileInfo/ProfileInfoContainer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfilePage/ProfileInfo/ProfileStatus/ProfileStatus.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/Reducers/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Reducers/userReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="241DrzLLGp7quG7roOEHYmpQJaJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="baad4c9b-48a1-4f15-a933-d76d22146fe4" name="Changes" comment="" />
+      <created>1642789406412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642789406412</updated>
+      <workItem from="1642789408411" duration="148000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

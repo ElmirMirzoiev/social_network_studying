@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import {Link, Navigate} from 'react-router-dom';
+import React from 'react';
+import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import Button from '@mui/material/Button';
-import {logOutThunk, setAuthDataThunk} from "../../store/Reducers/authReducer";
+import {logOutThunk} from "../../store/Reducers/authReducer";
 import styles from './Header.module.scss';
 
 const Header = () => {
