@@ -1,34 +1,31 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {useDispatch, useSelector} from "react-redux";
-import Button from '@mui/material/Button';
-import {logOutThunk} from "../../store/Reducers/authReducer";
-import styles from './Header.module.scss';
+import React from "react"
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import Button from "@mui/material/Button"
+import { logOutThunk } from "../../store/Reducers/authReducer"
+import styles from "./Header.module.scss"
 
 const Header = () => {
+  const { login, isAuth } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
 
-    const {login, isAuth} = useSelector(state => state.auth)
-    const dispatch = useDispatch()
-
-    return (
-        <div className={styles.header}>
-            {
-                !isAuth
-                    ? <div className={styles.isAuth}>
-                        <span>Social Network </span>
-                        <Link to={'/login'}> <Button>Login</Button> </Link>
-                    </div>
-
-                    : <div className={styles.isAuth}>
-                        <span>{login}</span>
-                        <Button onClick={() => dispatch(logOutThunk())}> LogOut </Button>
-                    </div>
-
-            }
+  return (
+    <div className={styles.header}>
+      {!isAuth ? (
+        <div className={styles.isAuth}>
+          <span>Social Network </span>
+          <Link to={"/login"}>
+            <Button>Login</Button>
+          </Link>
         </div>
-    );
-};
+      ) : (
+        <div className={styles.isAuth}>
+          <span>{login}</span>
+          <Button onClick={() => dispatch(logOutThunk())}> LogOut </Button>
+        </div>
+      )}
+    </div>
+  )
+}
 
-export default Header;
-
-
+export default Header

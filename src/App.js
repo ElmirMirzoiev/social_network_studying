@@ -1,29 +1,29 @@
-import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
-import Settings from "./components/Pages/SettingsPage/Settings";
-import MessagesContainer from "./components/Pages/MessagesPage/MessagesContainer";
-import UsersContainer from "./components/Pages/UsersPage/UsersContainer";
-import LoginPage from "./components/Pages/LoginPage/LoginPage";
-import ProfileInfoContainer from "./components/Pages/ProfilePage/ProfileInfo/ProfileInfoContainer";
-import FriendsContainer from "./components/Pages/FriendsPage/FriendsContainer";
-import { setAuthDataThunk } from "./store/Reducers/authReducer";
-import { useDispatch, useSelector } from "react-redux";
-import "./App.scss";
+import React, { useEffect } from "react"
+import { Route, Routes } from "react-router-dom"
+import Header from "./components/Header/Header"
+import Navbar from "./components/Navbar/Navbar"
+import Settings from "./components/Pages/SettingsPage/Settings"
+import MessagesContainer from "./components/Pages/MessagesPage/MessagesContainer"
+import UsersContainer from "./components/Pages/UsersPage/UsersContainer"
+import LoginPage from "./components/Pages/LoginPage/LoginPage"
+import ProfileInfoContainer from "./components/Pages/ProfilePage/ProfileInfo/ProfileInfoContainer"
+import FriendsContainer from "./components/Pages/FriendsPage/FriendsContainer"
+import { setAuthDataThunk } from "./store/Reducers/authReducer"
+import { useDispatch, useSelector } from "react-redux"
+import "./App.scss"
 // import Preloader from "./sharedComponents/Preloader/Preloader";
 // import {isAuth} from "./store/Selectors/authSelector";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const { isAuth } = useSelector((state) => state.auth);
+  const dispatch = useDispatch()
+  const { isAuth } = useSelector((state) => state.auth)
   // console.log(isAuth);
 
   useEffect(() => {
     setTimeout(() => {
-      dispatch(setAuthDataThunk());
-    }, 500);
-  }, [dispatch, isAuth]);
+      dispatch(setAuthDataThunk())
+    }, 500)
+  }, [dispatch, isAuth])
 
   const routes = [
     {
@@ -50,7 +50,7 @@ const App = () => {
       path: "/friends",
       element: <FriendsContainer />,
     },
-  ];
+  ]
 
   // if (!isAuth) {
   //     return <Preloader/>
@@ -69,13 +69,13 @@ const App = () => {
                 key={route.path}
                 path={route.path}
                 element={route.element}
-                 />
+              />
             ))}
           </Routes>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

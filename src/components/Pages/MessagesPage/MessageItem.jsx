@@ -1,10 +1,8 @@
-import s from "./Messages.module.css";
-import React from "react";
+import s from "./Messages.module.css"
+import React from "react"
 
 function MessageItem(props) {
-    return (
-        <div className={s.message_item}>{props.message}</div>
-    );
+  return <div className={s.message_item}>{props.message}</div>
 }
 
-export default MessageItem;
+export default MessageItem

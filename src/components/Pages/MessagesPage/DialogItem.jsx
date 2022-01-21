@@ -1,19 +1,19 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import s from "./Messages.module.css";
+import React from "react"
+import { NavLink } from "react-router-dom"
+import s from "./Messages.module.css"
 
-function DialogItem(props) {
-const path = "/messages/" + props.id;
-const setActive = (navData) =>
-    navData.isActive ? s.dialog_active : s.dialog_item;
+const DialogItem = (props) => {
+  const path = "/messages/" + props.id
+  const setActive = (navData) =>
+    navData.isActive ? s.dialog_active : s.dialog_item
 
-return (
+  return (
     <div>
-        <NavLink to={path} className={setActive}>
+      <NavLink to={path} className={setActive}>
         {props.name}
-        </NavLink>
+      </NavLink>
     </div>
-);
+  )
 }
 
-export default DialogItem;
+export default DialogItem

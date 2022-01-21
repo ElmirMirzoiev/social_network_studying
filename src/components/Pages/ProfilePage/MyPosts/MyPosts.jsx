@@ -1,14 +1,14 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React from "react"
+import { useDispatch } from "react-redux"
 import {
   addPost,
   updatePostText,
-} from "../../../../store/Reducers/profileReducer";
-import Post from "./Post/Post";
-import s from "./MyPosts.module.css";
+} from "../../../../store/Reducers/profileReducer"
+import Post from "./Post/Post"
+import s from "./MyPosts.module.css"
 
 const MyPosts = ({ postData, newPostText }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const postElement = postData.map((post) => (
     <Post
       key={post.id}
@@ -16,15 +16,15 @@ const MyPosts = ({ postData, newPostText }) => {
       message={post.message}
       likesCount={post.likesCount}
     />
-  ));
+  ))
 
   const addNewPost = () => {
-    dispatch(addPost());
-  };
+    dispatch(addPost())
+  }
 
   const onPostChange = (e) => {
-    dispatch(updatePostText(e.target.value));
-  };
+    dispatch(updatePostText(e.target.value))
+  }
 
   return (
     <div className={s.MyPosts}>
@@ -48,7 +48,7 @@ const MyPosts = ({ postData, newPostText }) => {
       </span>
       <div className={s.postItem}>{postElement}</div>
     </div>
-  );
-};
+  )
+}
 
-export default MyPosts;
+export default MyPosts
