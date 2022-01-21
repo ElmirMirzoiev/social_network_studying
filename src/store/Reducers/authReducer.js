@@ -1,4 +1,4 @@
-import {SET_AUTH_DATA} from "../types";
+import {IS_AUTH, SET_AUTH_DATA} from "../types";
 import {authAPI} from "../../API/authAPI";
 
 
@@ -17,12 +17,19 @@ const authReducer = (state = initialState, action) => {
                 ...action.payload,
                 isAuth: true
             }
+        case IS_AUTH:
+            return {
+                ...state,
+                isAuth: false
+            }
         default:
             return state
     }
 };
 
 export const setAuthData = (payload) => ({type: SET_AUTH_DATA, payload});
+export const setLogOut = () => ({type: IS_AUTH});
+
 
 export const setAuthDataThunk = () => {
     return (dispatch) => {
@@ -53,9 +60,9 @@ export const logInThunk = (email, password) => {
 export const logOutThunk = () => {
     return dispatch => {
         authAPI.logout().then(response => {
-            dispatch(setAuthDataThunk())
-            console.log(response)
-        })
+                dispatch(setLogOut())
+            }
+        )
     }
 }
 

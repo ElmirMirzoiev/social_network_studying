@@ -21,7 +21,7 @@ const Header = () => {
 
                     : <div className={styles.isAuth}>
                         <span>{login}</span>
-                        <Button onClick={dispatch(logOutThunk)}> LogOut </Button>
+                        <Button onClick={() => dispatch(logOutThunk())}> LogOut </Button>
                     </div>
 
             }

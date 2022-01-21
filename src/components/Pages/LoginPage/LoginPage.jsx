@@ -7,8 +7,9 @@ import styles from './LoginPage.module.scss';
 const LoginPage = () => {
 
     const {isAuth} = useSelector(state => state.auth)
-    if (isAuth) return <Navigate to={'/friends/'}/>;
-    
+
+    if (isAuth) return <Navigate to={'/profile/21568'}/>;
+
     return (
         <div className={styles.authContainer}>
             <h1>Login Page</h1>

@@ -11,17 +11,20 @@ import FriendsContainer from "./components/Pages/FriendsPage/FriendsContainer";
 import {setAuthDataThunk} from "./store/Reducers/authReducer";
 import {useDispatch, useSelector} from "react-redux";
 import './App.scss';
+// import Preloader from "./sharedComponents/Preloader/Preloader";
+// import {isAuth} from "./store/Selectors/authSelector";
 
 
 const App = () => {
 
-    const {isAuth} = useSelector((state) => state.auth);
     const dispatch = useDispatch()
-
+    const {isAuth} = useSelector(state => state.auth);
+    console.log(isAuth);
 
     useEffect(() => {
-        dispatch(setAuthDataThunk())
-        console.log(isAuth);
+        setTimeout(() => {
+            dispatch(setAuthDataThunk())
+        }, 500)
     }, [dispatch, isAuth])
 
     const routes = [
@@ -51,8 +54,13 @@ const App = () => {
         }
     ];
 
+    // if (!isAuth) {
+    //     return <Preloader/>
+    // }
+
     return (
         <>
+
             <div className='app_wrapper'>
                 {/*{!isAuth ? <Navigate to='/login'/> : <Navigate to='/friends'/>}*/}
                 <Header/>
