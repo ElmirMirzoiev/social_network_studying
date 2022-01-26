@@ -1,12 +1,11 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import {Button} from '@mui/material';
 import userImg from '../../../../assets/images/user.png';
-import {followUserThunk, unfollowUserThunk} from '../../../../store/Reducers/userReducer';
-import styles from './/UserItem.module.scss';
+import styles from './UserItem.module.scss';
+import UnfollowButton from "../../../../sharedComponents/Buttons/UnfollowButton";
+import FollowButton from "../../../../sharedComponents/Buttons/FollowButton";
 
-const UserItem = ({users, followInProgress, dispatch}) => {
-
+export const UserItem = ({users, followInProgress, dispatch}) => {
 
     const userElement = users.map((user) =>
         <li key={user.id} className={styles.userItem}>
@@ -24,21 +23,13 @@ const UserItem = ({users, followInProgress, dispatch}) => {
 
             {user.followed
 
-                ? <Button variant="contained"
-                          sx={{width: 80, margin: 1}}
-                          size="small"
-                          disabled={followInProgress.some(id => id === user.id)}
-                          onClick={() =>
-                              dispatch(unfollowUserThunk(user.id))}>
-                    Unfollow </Button>
+                ? <UnfollowButton dispatch={dispatch}
+                                  followInProgress={followInProgress}
+                                  user={user}/>
 
-                : <Button variant="contained"
-                          sx={{width: 80, margin: 1}}
-                          size="small"
-                          disabled={followInProgress.some(id => id === user.id)}
-                          onClick={() =>
-                              dispatch(followUserThunk(user.id))}>
-                    Follow </Button>}
+                : <FollowButton dispatch={dispatch}
+                                followInProgress={followInProgress}
+                                user={user}/>}
         </li>);
 
     return (
@@ -49,5 +40,3 @@ const UserItem = ({users, followInProgress, dispatch}) => {
     );
 };
 
-
-export default UserItem;

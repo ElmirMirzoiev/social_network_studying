@@ -1,7 +1,7 @@
 import React from "react"
 import userImg from "../../../../assets/images/user.png"
 import ProfileStatus from "./ProfileStatus/ProfileStatus"
-import Preloader from "../../../../sharedComponents/Preloader/Preloader"
+import {Preloader} from "../../../../sharedComponents/Preloader/Preloader"
 import styles from "./ProfileInfo.module.scss"
 
 const ProfileInfo = ({ userId, fullName, aboutMe, photos, contacts }) => {

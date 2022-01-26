@@ -1,21 +1,22 @@
 import React from 'react';
 import Button from "@mui/material/Button";
+import {Preloader} from "../../../../sharedComponents/Preloader/Preloader";
 import styles from './Friends.module.scss';
-import Preloader from "../../../../sharedComponents/Preloader/Preloader";
 
 const Friends = (props) => {
 
     const friendElement = props.friends.map(friend => <li key={friend.id} className={styles.friendItem}>
         <img alt={'user'} src={friend.photos.large}/>
         <div className={styles.userName}>
-            <span>Name:___</span>
-            <span>{friend.name}</span>
-        </div>
-        <div className={styles.userStatus}>
-            <span>Status:___</span>
-            <span>{friend.status}</span>
+            {friend.name}
         </div>
         <Button> unfollow </Button>
+        <div className={styles.userStatus}>
+            {friend.status
+                ? <span>{friend.status}</span>
+
+                :  <span>No available status</span>}
+        </div>
     </li>)
 
     return (
@@ -23,7 +24,7 @@ const Friends = (props) => {
             {
                 props.isLoading
 
-                    ? <div className={styles.preloader}><Preloader/></div>
+                    ? <Preloader/>
 
                     : <ul className={styles.friendsList}> {friendElement} </ul>
             }

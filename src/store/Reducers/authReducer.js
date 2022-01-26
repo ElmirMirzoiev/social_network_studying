@@ -5,7 +5,7 @@ const initialState = {
   email: null,
   login: null,
   id: null,
-  isAuth: false,
+  isAuth: true,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -56,9 +56,7 @@ export const logInThunk = (email, password) => {
 
 export const logOutThunk = () => {
   return (dispatch) => {
-    authAPI.logout().then((response) => {
-      dispatch(setLogOut())
-    })
+    authAPI.logout().then(dispatch(setLogOut()))
   }
 }
 
